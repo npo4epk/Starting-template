@@ -1,0 +1,91 @@
+
+//--------------------------------------------\\
+//FONTS-FACE
+//--------------------------------------------\\
+
+// @include font-face('FontAwesome', '../fonts/FontAwesome/fontawesome-webfont', normal, normal, eot woff2 woff ttf); 
+@mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg) {
+	$src: null;
+
+	$extmods: (
+		eot: "?",
+		svg: "#" + str-replace($name, " ", "_")
+	);
+
+	$formats: (
+		otf: "opentype",
+		ttf: "truetype"
+	);
+
+	@each $ext in $exts {
+		$extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+		$format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+		$src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma);
+	}
+
+	@font-face {
+		font-family: quote($name);
+		font-style: $style;
+		font-weight: $weight;
+		src: $src;
+	}
+}
+
+
+//--------------------------------------------\\
+//PX in REM
+//--------------------------------------------\\
+
+// @include rem(line-height, 12, 16); 
+// @include rem(font-size, 12, 16); 
+@mixin rem($property, $size, $base: 16) {
+  #{$property}: $size * 1px;
+  #{$property}: ($size / $base) * 1rem;
+}
+
+
+//--------------------------------------------\\
+//PSEUDO
+//--------------------------------------------\\
+
+// div:after {
+// 	@include pseudo(block, absolute, ' ');
+// }
+@mixin pseudo($display: block, $pos: absolute, $content: " "){
+  content: $content;
+  display: $display;
+  position: $pos;
+}
+
+
+//--------------------------------------------\\
+//CLEARFIX
+//--------------------------------------------\\
+
+// @include clearfix
+@mixin clearfix() {
+    &:before,
+    &:after {
+        content: " ";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    } 
+}
+
+
+//--------------------------------------------\\
+//CLEARFIX
+//--------------------------------------------\\
+
+// @include input-placeholder {
+// 	color: $grey;
+// }
+@mixin input-placeholder {
+  &.placeholder { @content; }
+  &:-moz-placeholder { @content; }
+  &::-moz-placeholder { @content; }
+  &:-ms-input-placeholder { @content; }
+  &::-webkit-input-placeholder { @content; }
+}
