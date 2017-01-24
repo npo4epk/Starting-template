@@ -175,4 +175,4 @@ gulp.task('default', ['watch', 'browser-sync']);
 //--------------------------------------------\\
 gulp.task('clear', function (callback) {
 	return cache.clearAll();
-})
+});
