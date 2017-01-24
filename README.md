@@ -25,7 +25,7 @@
 
 ##Author's profile in social networks:
 <table>
-	<thead>
+	<thead>  
 		<tr>
 			<th>Profile:</th>
 			<th>Link:</th>
