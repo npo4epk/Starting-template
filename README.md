@@ -24,9 +24,6 @@
 
 
 ##Author's profile in social networks:
-<p>LinkedIn: <a href="https://www.linkedin.com/in/никита-карпинский-544b42a2" target="_blank">linkedin.com</a></p>
-<p>VK: <a href="https://vk.com/nikita_karpinskiy" target="_blank">vk.com</a></p>	
-
 <table>
 	<thead>
 		<tr>
