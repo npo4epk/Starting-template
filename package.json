@@ -6,7 +6,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "nekit-1989@mail.ru",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/npo4epk/Starting-template"
+  },
+  "author": "Nikita Karpinskiy <nekit-1989@mail.ru>",
   "license": "ISC",
   "devDependencies": {
     "browser-sync": "^2.11.1",

@@ -1,9 +1,12 @@
 {
   "name": "Template",
   "version": "1.0.0",
+  "homepage": "https://github.com/npo4epk/Starting-template",
   "authors": [
-    "nekit-1989@mail.ru"
+    "Nikita Karpinskiy <nekit-1989@mail.ru>"
   ],
+  "description": "My Gulp Template",
+  "license": "MIT",
   "dependencies": {
     "jquery": "~2.1.4",
     "font-awesome": "~4.4.0",
