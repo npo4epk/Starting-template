@@ -1,7 +1,8 @@
 //  Этот код будет работать по современному стандарту ES5
 "use strict";
 
-
+// Шпора по JQuery
+// http://jquery.page2page.ru/tags/ifr.html
 $(document).ready(function() {
 
 
@@ -35,7 +36,7 @@ var FormSender = ( function () {
 		event.preventDefault();
 
 		var form = $(this),
-				url = '/ajax.php', ///mail.php
+				url = '/ajax.php', //mail.php
 				dataType = 'JSON',
 				defObject = __ajaxForm( form, url, dataType);
 
