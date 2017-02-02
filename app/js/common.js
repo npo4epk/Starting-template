@@ -5,6 +5,12 @@
 // http://jquery.page2page.ru/tags/ifr.html
 $(document).ready(function() {
 
+	//Храним тут все переменные
+	var _var = (function () {
+		return {
+			title : value
+		}
+	}());
 
 });
 
@@ -68,5 +74,4 @@ var FormSender = ( function () {
 		}
 	};
 }());
-
 FormSender.init();

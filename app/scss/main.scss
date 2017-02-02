@@ -1,9 +1,8 @@
 //--------------------------------------------\\
 //@IMPORT
 //--------------------------------------------\\
-@import "_variables";
-@import "_mixins";
-
+@import "components/_variables";
+@import "helpers/_mixins";
 
 //--------------------------------------------\\
 //DEFAULT
@@ -12,100 +11,106 @@
   box-sizing: border-box;
 } 
 
-
-//--------------------------------------------\\
-//STYLES
-//--------------------------------------------\\
 html {
- font-size: 14px;
- line-height: 1px;
-}
-    
-body { 
- font-family: sans-serif;
- @include rem(font-size, 12, 16);  
- @include rem(line-height, 12, 16); 
- min-width: 320px;
- position: relative;
-} 
-
-div:after {
-	@include pseudo(block, absolute, " ");
+  font-size: $font-size-overall; //_variables.scss
 }
 
-span {
-		@include clearfix;
-}
-
-textarea {
-	@include input-placeholder {
-		color: red;
-	}
+body {
+  font-family: $font-family-overall;
+  @include rem(fs, 20, $font-size-overall-mixin); //_mixins.scss @include rem(fs, 12, 16)
+  @include rem(lh, 20, $font-size-overall-mixin); //_mixins.scss @include rem(lh, 12, 16)
+  color: $color-overall; //_variables.scss
+  @include pseudo(); //_mixins.scss @include pseudo(block, absolute, ' ')
+  @include clearfix(); //_mixins.scss @include clearfix()
+  @include list-clear(); //_mixins.scss @include list-clear()
+  @include placeholder(red, normal, none); //_mixins.scss @include placeholder(red, normal, none)
 }
 
 //--------------------------------------------\\
 //@IMPORT
 //--------------------------------------------\\
-@import "_header";
+@import "sections/_header";
+
 
 
 
 //--------------------------------------------\\
-//Вставляея свойства
+//@IMPORT
 //--------------------------------------------\\
-// %for-grids {
+@import "sections/_footer";
+
+//--------------------------------------------\\
+//@IMPORT
+//--------------------------------------------\\
+@import "helpers/_media";
+
+
+
+
+//--------------------------------------------\\
+//            ШПОРА ПО SCSS
+//--------------------------------------------\\
+
+/* Мапы */
+//$map: (
+//        title: value
+//);
+//
+//.message {
+//  @each $title, $value in $map {
+//    &--#{$title} {
+//      background: $value;
+//    }
+//  }
+//}
+
+/* Директива @extend */
+//.error {
+//  border: 1px #f00;
+//}
+//.error2 {
+//  @extend .error;
+//  border-width: 3px;
+//}
+
+/* Селекторы расширения */
+// %foo {
 //     min-height: 1px;
 // }
-
+//
 // .class {
-//     @extend %for-grids;
+//     @extend %foo;
 // }
 
-//--------------------------------------------\\
-//Наследует свойства
-//--------------------------------------------\\
-// .error {
-//   border-radius: 4px;
-// }
+/* Директива @if */
+//$type: monster;
+//p {
+//  @if $type == ocean {
+//    color: blue;
+//  } @else if $type == monster {
+//    color: green;
+//  } @else {
+//    color: black;
+//  }
+//}
 
-// .badError {
-//   @extend .error;
-//   background-color: #78b6ff;
-// }
+/* Директива @for */
+//$length : 3;
+//@for $i from 1 through $length {
+//  .item-#{$i} { width: 2em * $i; }
+//}
 
-//--------------------------------------------\\
-//Массив
-//--------------------------------------------\\
-// $social: fac, tww, vk;
-// @each $soc in $social {
-  
-//   .social-#{$soc} {
-//     background: url("../img/social/#{$soc}.png");
-//   }
-// }
+/* Директива @each */
+//$animals: puma, sea-slug, egret, salamander;
+//@each $animal in $animals {
+//  .#{$animal}-icon {
+//    background-image: url('/images/#{$animal}.png');
+//  }
+//}
 
-//--------------------------------------------\\
-//Цикл
-//--------------------------------------------\\
-// @for $i from 1 through 4 {
-
-//   .item-about-#{$i} {
-//     display: block;
-
-//     @if $i == 1 {
-//       width: 116px;
-//     } @else if $i == 2 {
-//       width: 118px;
-//     } @else if $i == 3 {
-//       width: 118px;
-//     } @else if $i == 4 {
-//       width: 118px;
-//     }
-//   }
-// }
-
-//--------------------------------------------\\
-//@IMPORT
-//--------------------------------------------\\
-@import "_footer";
-@import "_media";
+/* Директива @while */
+//$i: 6;
+//@while $i > 0 {
+//  .item-#{$i} { width: 2em * $i; }
+//  $i: $i - 2;
+//}
