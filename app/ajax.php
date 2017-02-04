@@ -1,5 +1,7 @@
 <?php
 
+    sleep(1);
+
 	$name = $_POST['name'];
 	$data = array();
 

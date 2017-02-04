@@ -5,10 +5,10 @@
 // http://jquery.page2page.ru/tags/ifr.html
 $(document).ready(function() {
 
-	//Храним тут все переменные
-	var _var = (function () {
+	//Храним тут все переменные и потом обращаемся как к обьекту
+	var __var = (function () {
 		return {
-			title : value
+			text : value
 		}
 	}());
 
@@ -34,7 +34,8 @@ var FormSender = ( function () {
 
 	// Подключаем прослушку событий
 	function __setUpListener () {
-		$('.class').on('submit', __showResult);
+		$('.class')
+			.on('submit', __showResult);
 	};
 
 	// Обработка submit формы
