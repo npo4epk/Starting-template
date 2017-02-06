@@ -4,9 +4,9 @@
 
 
 
-##Gulp
+##Bower
 <p>Command to install bower:</p>
-<p>bower i {name plugin}</p>
+<p>bower i {name plugin} --save</p>
 
 
 
