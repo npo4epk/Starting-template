@@ -1,3 +1,13 @@
+##Gulp - Start Guide
+
+<p>Need to ensure you have everything on your machine:</p>
+<ol>
+	<li>Node.js</li>
+	<li>npm</li>
+	<li>Bower</li>
+</ol>
+
+
 ##Npm
 <p>Command to install npm:</p>
 <p>npm i {name plugin} -D</p>
