@@ -1,11 +1,18 @@
 //  Этот код будет работать по современному стандарту ES5
 "use strict";
 
-// Шпора по JQuery
-// http://jquery.page2page.ru/tags/ifr.html
+/**
+ * Шпора по JQuery
+ *
+ * http://jquery.page2page.ru/tags/ifr.html
+ */
 $(document).ready(function() {
 
-	//Храним тут все переменные и потом обращаемся как к обьекту
+    /**
+     * Xраним тут все переменные и потом обращаемся как к обьекту
+     *
+     *
+     */
 	var __var = (function () {
 		return {
 			text : value
@@ -21,7 +28,12 @@ $(window).load(function() {
 }); 
 
 
-// Создаем свои функции в Jquery
+
+/**
+ * Создаем свои функции в Jquery
+ *
+ *
+ */
 $.fn.nameFucn = function( options ) {
 	options = {
 		nameOpt : options.nameOpt || 'default value'
@@ -29,16 +41,28 @@ $.fn.nameFucn = function( options ) {
 };
 
 
-//PHP Ajax form
+/**
+ * PHP Ajax form
+ *
+ *
+ */
 var FormSender = ( function () {
 
-	// Подключаем прослушку событий
+    /**
+     * Подключаем прослушку событий
+     *
+     *
+     */
 	function __setUpListener () {
 		$('.class')
 			.on('submit', __showResult);
 	};
 
-	// Обработка submit формы
+    /**
+     * Обработка submit формы
+     *
+     *
+     */
 	function __showResult ( event ) {
 		event.preventDefault();
 
@@ -52,7 +76,11 @@ var FormSender = ( function () {
 		});
 	};
 
-	// Универсальная функция AJAX
+    /**
+     * Универсальная функция AJAX
+     *
+     *
+     */
 	function __ajaxForm ( form, url, dataType ) {
 		var data = form.serialize(),
 				defObject = $.ajax({
@@ -68,7 +96,11 @@ var FormSender = ( function () {
 		return defObject;
 	};
 
-	// Возращаем в глобальную область видимости
+    /**
+     * Возращаем в глобальную область видимости
+     *
+     *
+     */
 	return {
 		init: function () {
 			__setUpListener();
