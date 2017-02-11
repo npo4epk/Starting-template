@@ -14,7 +14,34 @@ var 	browserSync   = require('browser-sync'),
 		scss          = require('gulp-sass'),
 		uglify        = require('gulp-uglify'),
 		useref        = require('gulp-useref'),
+    	spritesmith   = require('gulp.spritesmith'),
 		wiredep       = require('wiredep').stream;
+
+
+//--------------------------------------------\\
+//SPRITESMITH TASKS
+//--------------------------------------------\\
+gulp.task('sprite', function () {
+
+    var spriteData = gulp.src('app/img/sprites/*.*')
+        .pipe(spritesmith({
+            imgName: 'sprite.png',
+            cssName: '_sprite.scss',
+            cssFormat: 'scss',
+            padding: 5,
+            imgPath: '../img/sprite.png',
+            algorithm: 'top-down',
+            cssVarMap: function(sprite) {
+                sprite.name = 's-' + sprite.name
+            }
+        }));
+
+    spriteData.img
+        .pipe(gulp.dest('app/img'));
+
+    spriteData.css
+        .pipe(gulp.dest('app/scss/components'));
+});
 
 
 //--------------------------------------------\\
@@ -73,8 +100,6 @@ gulp.task('watch', ['browser-sync', 'scss', 'js'], function() {
 });
 
 
-
-
 //--------------------------------------------\\
 //FONTS TASKS
 //--------------------------------------------\\
@@ -88,7 +113,7 @@ gulp.task('fonts', function () {
 //IMAGES TASKS
 //--------------------------------------------\\
 gulp.task('img', function() {
-	return gulp.src('app/img/**/*')
+	return gulp.src(['!app/img/sprites', '!app/img/sprites/*', 'app/img/**/*'])
 				.pipe(cache(imagemin({interlaced: true, progressive: true, svgoPlugins: [{removeViewBox: false}], use: []})))
 				.pipe(gulp.dest('dist/img'));
 });
@@ -113,7 +138,8 @@ gulp.task('extrass', function () {
 					'!app/bower',
 					'!app/scss',
 					'!app/vendor',
-					'!app/*.html'
+					'!app/*.html',
+					'!app/img/sprites'
 					])
 				.pipe(gulp.dest('dist'));
 });
@@ -134,6 +160,7 @@ gulp.task('css-no-min', function () {
 	return gulp.src('app/css/**/*')
 				.pipe(gulp.dest('dist/css'));
 });
+
 
 //--------------------------------------------\\
 //JS-NO-MIN TASKS
@@ -160,8 +187,6 @@ gulp.task('build', ['clean', 'scss', 'js'], function () {
 				.pipe(gulpif('*.css', minifyCss({compatibility: 'ie8'})))
 				.pipe(gulp.dest('dist'));
 });
-
-
 
 
 //--------------------------------------------\\

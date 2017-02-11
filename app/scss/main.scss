@@ -2,7 +2,14 @@
 //@IMPORT
 //--------------------------------------------\\
 @import "components/_variables";
+//@import "components/_sprite";
 @import "helpers/_mixins";
+
+
+.icon {
+  //display: inline-block;
+  //@include sprite($s-1);
+}
 
 //--------------------------------------------\\
 //DEFAULT
