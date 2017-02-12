@@ -26,6 +26,7 @@
 <ul>
 	<li>npm i</li>
 	<li>bower i</li>
+	<li>gulp sprite</li>
 	<li>gulp wiredep</li>
 	<li>gulp watch (Run project)</li>
 	<li>gulp build (Build project)</li>
