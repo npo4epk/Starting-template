@@ -127,7 +127,7 @@
     <li><a href="https://developers.google.com/maps/documentation/javascript/tutorial?hl=ru" target="_blank">https://developers.google.com/maps/documentation/javascript/tutorial?hl=ru</a></li>
 </ol>
 <p>
-    <code>
+    <pre>
         // Enable scroll zoom after click on map
         map.addListener('click', function() {
            map.setOptions({
@@ -242,7 +242,7 @@
         google.maps.event.addDomListener(window, 'resize', function() {
             map.setCenter(getCen);
         });
-    </code>
+    </pre>
 </p>
 
 
@@ -251,7 +251,7 @@
     <li><a href="https://tech.yandex.ru/maps/" target="_blank">https://tech.yandex.ru/maps/</a></li>
 </ol>
 <p>
-    <code>
+    <pre>
           var myMap = {};
             function __init() {
                 // Создаем геообъект с типом геометрии "Точка".
@@ -275,7 +275,7 @@
                 // Добавляем все метки на карту.
                 myMap.geoObjects.add(myPlacemark);
             };   
-     </code>
+     </pre>
  </p>
 
 ##Author's profile in social networks:
