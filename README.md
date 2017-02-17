@@ -119,7 +119,164 @@
     <li>Progress: <a href="http://anthonyterrien.com/knob/" target="_blank">http://anthonyterrien.com/knob/</a></li>
 </ol>
 
- 
+
+<p>Yandex and Google maps:</p>
+<p>Google:</p>
+<ol>
+    <li><a href="https://snazzymaps.com/" target="_blank">https://snazzymaps.com/</a></li>
+    <li><a href="https://developers.google.com/maps/documentation/javascript/tutorial?hl=ru" target="_blank">https://developers.google.com/maps/documentation/javascript/tutorial?hl=ru</a></li>
+</ol>
+<p>
+    <code>
+        // Enable scroll zoom after click on map
+        map.addListener('click', function() {
+           map.setOptions({
+               scrollwheel: true
+           });
+        });
+    
+        // Enable scroll zoom after drag on map
+        map.addListener('drag', function() {
+           map.setOptions({
+               scrollwheel: true
+           });
+        });
+    
+        // Disable scroll zoom when mouse leave map
+        map.addListener('mouseout', function() {
+           map.setOptions({
+               scrollwheel: false
+           });
+        });
+       
+        /* Markers
+        =========================*/
+    
+        var neighborhoods = [
+            // Main
+            {lat: 56.9364861, lng: 24.2120549, title: 'Title 1', icon: 'map-pin.png'},
+    	{lat: 55.9364861, lng: 24.2120549, title: 'Title 2', icon: 'map-pin.png'},
+        ];
+    
+        var markers = [];
+    
+        function drop() {
+            for (var i = 0; i < neighborhoods.length; i++) {
+                addMarkerWithTimeout(neighborhoods[i], i * 150);
+            }
+        }
+    
+        function addMarkerWithTimeout(marker, timeout) {
+            window.setTimeout(function() {
+                markers.push(new google.maps.Marker({
+                    position: new google.maps.LatLng(marker["lat"], marker["lng"]),
+                    map: map,
+                    title: marker["title"],
+                    icon: {
+                        url: "img/" + marker["icon"]
+                    },
+                    animation: google.maps.Animation.DROP
+                }));
+            }, timeout);
+        }
+    
+        drop();
+        
+        /* Info windows + Markers
+        =========================*/
+        infoWindow = new google.maps.InfoWindow();
+    
+        function displayMarkers() {
+    
+           // this variable sets the map bounds and zoom level according to markers position
+           var bounds = new google.maps.LatLngBounds();
+    
+           // For loop that runs through the info on markersData making it possible to createMarker function to create the markers
+           for (var i = 0; i < neighborhoods.length; i++){
+    
+              var latlng = new google.maps.LatLng(neighborhoods[i].lat, neighborhoods[i].lng);
+              var name = neighborhoods[i].title;
+              var icon = neighborhoods[i].icon;
+    
+              createMarker(latlng, name, icon, i * 150);
+    
+              // Marker’s Lat. and Lng. values are added to bounds variable
+              bounds.extend(latlng);
+           }
+    
+        }
+    
+    
+        function createMarker(latlng, title, icon, timeout) {
+    
+            window.setTimeout(function() {
+               var marker = new google.maps.Marker({
+                  map: map,
+                  position: latlng,
+                  clickable: true,
+                  icon: {
+                    url: "i/" + icon
+                  },
+                   animation: google.maps.Animation.DROP
+               });
+    
+                google.maps.event.addListener(marker, 'click', function() {
+                  var infoContent = '<div id="info_container">' +
+                  '<div class="info_title">' + title + '</div></div>';
+    
+                  infoWindow.setContent(infoContent);
+                  infoWindow.open(map, marker);
+    
+               });
+    
+            }, timeout);
+    
+        }
+    
+        displayMarkers();
+        
+        /* Map center on resize
+        =========================*/
+        var getCen = map.getCenter();
+    
+        google.maps.event.addDomListener(window, 'resize', function() {
+            map.setCenter(getCen);
+        });
+    </code>
+</p>
+
+
+<p>Yandex:</p>
+<ol>
+    <li><a href="https://tech.yandex.ru/maps/" target="_blank">https://tech.yandex.ru/maps/</a></li>
+</ol>
+<p>
+    <code>
+          var myMap = {};
+            function __init() {
+                // Создаем геообъект с типом геометрии "Точка".
+                myMap = new ymaps.Map('map', {
+                    center: [53.911683, 27.454576],
+                    zoom: 16,
+                    controls: []
+                });
+                // Создаем метку с помощью вспомогательного класса.
+                myPlacemark = new ymaps.Placemark(myMap.getCenter(), {
+                    hintContent: 'text',
+                    balloonContent: 'text'
+                }, {
+                    iconLayout: 'default#image',
+                    iconImageHref: '../img/icon-map.png',
+                    iconImageSize: [30, 42]
+                });
+                //Отключение свойств
+                myMap.behaviors.disable('scrollZoom');
+                myMap.behaviors.disable('drag');
+                // Добавляем все метки на карту.
+                myMap.geoObjects.add(myPlacemark);
+            };   
+     </code>
+ </p>
 
 ##Author's profile in social networks:
 <table>
