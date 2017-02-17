@@ -67,6 +67,7 @@
 
 <p>Map:</p>
 <ol>
+    <li>For position area: <a href="http://imagemap-generator.dariodomi.de/" target="_blank">http://imagemap-generator.dariodomi.de/</a></li>
     <li><a href="https://github.com/kemayo/maphilight" target="_blank">https://github.com/kemayo/maphilight</a></li>
     <li><a href="https://cssmapsplugin.com/" target="_blank">https://cssmapsplugin.com/</a></li>
 </ol>
