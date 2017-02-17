@@ -227,8 +227,7 @@
                    });
         
                     google.maps.event.addListener(marker, 'click', function() {
-                      <code>var infoContent = '<div id="info_container">' +
-                      '<div class="info_title">' + title + '</div></div>';</code>
+                      var infoContent = '<'+ div class="info_title" + '>' + title + '</'+ 'div' + '>';
         
                       infoWindow.setContent(infoContent);
                       infoWindow.open(map, marker);
