@@ -1,24 +1,11 @@
-//--------------------------------------------\\
-//@IMPORT
-//--------------------------------------------\\
+/* @IMPORT
+ ========================= */
 @import "components/_variables";
-//@import "components/_sprite";
+//@import "components/_sprite"; //Подключаем если есть спрайты
 @import "helpers/_mixins";
 
-//--------------------------------------------\\
-//DEFAULT
-//--------------------------------------------\\
-
-
-
-
-/*DEFAULT
-=========================*/
-
-
-
-
-
+/* DEFAULT
+ ========================= */
 * {
   box-sizing: border-box;
 }
@@ -28,7 +15,7 @@ html {
 }
 
 body {
-  font-family: $font-family-overall;
+  font-family: $font-family-overall; //_variables.scss
   @include rem(fs, 20, $font-size-overall-mixin); //_mixins.scss @include rem(fs, 12, 16)
   @include rem(lh, 20, $font-size-overall-mixin); //_mixins.scss @include rem(lh, 12, 16)
   color: $color-overall; //_variables.scss
@@ -38,30 +25,27 @@ body {
   @include placeholder(red, normal, none); //_mixins.scss @include placeholder(red, normal, none)
 }
 
-//--------------------------------------------\\
-//@IMPORT
-//--------------------------------------------\\
+/* @IMPORT HEADER
+ ========================= */
 @import "sections/_header";
 
 
 
 
-//--------------------------------------------\\
-//@IMPORT
-//--------------------------------------------\\
+/* @IMPORT FOOTER
+ ========================= */
 @import "sections/_footer";
 
-//--------------------------------------------\\
-//@IMPORT
-//--------------------------------------------\\
+/* @IMPORT HEADER
+ ========================= */
 @import "helpers/_media";
 
 
 
 
-//--------------------------------------------\\
-//            ШПОРА ПО SCSS
-//--------------------------------------------\\
+
+/* ШПОРА ПО SCSS
+ ========================= */
 
 /* Мапы */
 //$map: (

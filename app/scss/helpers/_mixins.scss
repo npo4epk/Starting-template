@@ -1,8 +1,6 @@
-//--------------------------------------------\\
-//FONTS-FACE
-//--------------------------------------------\\
-
-// @include font-face('FontAwesome', '../fonts/FontAwesome/fontawesome-webfont', normal, normal, eot woff2 woff ttf svg);
+/* FONTS-FACE
+ 	@include font-face('FontAwesome', '../fonts/FontAwesome/fontawesome-webfont', normal, normal, eot woff2 woff ttf svg);
+ ========================= */
 @mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg) {
 	$src: null;
 
@@ -31,12 +29,10 @@
 }
 
 
-//--------------------------------------------\\
-//PX in REM
-//--------------------------------------------\\
-
-// @include rem(lh, 12, 16);
-// @include rem(fs, 12, 16);
+/* PX in REM
+ 	@include rem(lh, 12, 16);
+	@include rem(fs, 12, 16);
+ ========================= */
 @mixin rem($name, $size, $base: 16) {
 	@if $name == fs {
 		font-size: $size * 1px;
@@ -48,11 +44,9 @@
 }
 
 
-//--------------------------------------------\\
-//PSEUDO
-//--------------------------------------------\\
-
-// 	@include pseudo(block, absolute, ' ');
+/* PSEUDO
+	@include pseudo(block, absolute, ' ');
+ ========================= */
 @mixin pseudo($display: block, $pos: absolute, $content: " "){
   content: $content;
   display: $display;
@@ -60,11 +54,9 @@
 }
 
 
-//--------------------------------------------\\
-//CLEARFIX
-//--------------------------------------------\\
-
-// @include clearfix()
+/* CLEARFIX
+	@include clearfix()
+ ========================= */
 @mixin clearfix() {
     &:before,
     &:after {
@@ -77,11 +69,9 @@
 }
 
 
-//--------------------------------------------\\
-//CLEARFIX
-//--------------------------------------------\\
-
-// @include placeholder(red, normal, none)
+/* PLEACEHOLDER
+	@include placeholder(red, normal, none)
+ ========================= */
 @mixin placeholder($color:  #000, $font-weight:normal, $text-transform: none) {
 	::-moz-placeholder {
 		color: $color;
@@ -101,11 +91,9 @@
 }
 
 
-//--------------------------------------------\\
-//CLEARFIX
-//--------------------------------------------\\
-
-//@include list-clear()
+/* LIST-CLEAR
+	@include list-clear()
+ ========================= */
 @mixin list-clear() {
 	margin: 0;
 	padding: 0;

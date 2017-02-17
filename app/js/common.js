@@ -1,18 +1,15 @@
-//  Этот код будет работать по современному стандарту ES5
+
+/* Этот код будет работать по современному стандарту ES5
+ ========================= */
 "use strict";
 
-/**
- * Шпора по JQuery
- *
- * http://jquery.page2page.ru/tags/ifr.html
- */
+
+/* Шпора по JQuery - http://jquery.page2page.ru/tags/ifr.html
+ ========================= */
 $(document).ready(function() {
 
-    /**
-     * Xраним тут все переменные и потом обращаемся как к обьекту
-     *
-     *
-     */
+	/* ПЕРЕМЕННЫЕ
+	 ========================= */
 	var __var = (function () {
 		return {
 			text : value
@@ -21,48 +18,27 @@ $(document).ready(function() {
 
 });
 
-$(window).load(function() {
-
-
-
-}); 
-
-
-
-/**
- * Создаем свои функции в Jquery
- *
- *
- */
+/* СОЗДАЕМ СВОИ ФУНКЦИИ
+ ========================= */
 $.fn.nameFucn = function( options ) {
 	options = {
 		nameOpt : options.nameOpt || 'default value'
 	}
 };
 
-
-/**
- * PHP Ajax form
- *
- *
- */
+/* PHP AJAX FORM
+ ========================= */
 var FormSender = ( function () {
 
-    /**
-     * Подключаем прослушку событий
-     *
-     *
-     */
+	/* ПОДКЛЮЧАЕМ ПРОСЛУШКУ СОБЫТИЙ
+	 ========================= */
 	function __setUpListener () {
 		$('.class')
 			.on('submit', __showResult);
 	};
 
-    /**
-     * Обработка submit формы
-     *
-     *
-     */
+	/* ОБРАБОТКА SUBMIT ФОРМЫ
+	 ========================= */
 	function __showResult ( event ) {
 		event.preventDefault();
 
@@ -76,11 +52,8 @@ var FormSender = ( function () {
 		});
 	};
 
-    /**
-     * Универсальная функция AJAX
-     *
-     *
-     */
+	/* УНИВЕРСАЛЬНАЯ ФУНКЦИЯ AJAX
+	 ========================= */
 	function __ajaxForm ( form, url, dataType ) {
 		var data = form.serialize(),
 				defObject = $.ajax({
@@ -96,11 +69,8 @@ var FormSender = ( function () {
 		return defObject;
 	};
 
-    /**
-     * Возращаем в глобальную область видимости
-     *
-     *
-     */
+	/* ВОЗРАЩАЕМ В ГЛОБАЛЬНУЮ ЛБЛАСТЬ ВИДИМОСТИ
+	 ========================= */
 	return {
 		init: function () {
 			__setUpListener();
