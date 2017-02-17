@@ -272,7 +272,7 @@
                 //Отключение свойств
                 myMap.behaviors.disable('scrollZoom');
                 myMap.behaviors.disable('drag');
-                // Добавляем все метки на карту.
+                // Добавляем все метки на карту. 
                 myMap.geoObjects.add(myPlacemark);
             };   
      </pre>
