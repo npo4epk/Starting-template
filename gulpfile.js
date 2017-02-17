@@ -1,8 +1,7 @@
 'use strict'
 
-//--------------------------------------------\\
-//DEPENDENCIES
-//--------------------------------------------\\
+/* DEPENDENCIES
+ ========================= */
 var 	browserSync   = require('browser-sync'),
 		del           = require('del'),
 		gulp       	  = require('gulp'),
@@ -17,10 +16,8 @@ var 	browserSync   = require('browser-sync'),
     	spritesmith   = require('gulp.spritesmith'),
 		wiredep       = require('wiredep').stream;
 
-
-//--------------------------------------------\\
-//SPRITESMITH TASKS
-//--------------------------------------------\\
+/* SPRITESMITH TASKS
+ ========================= */
 gulp.task('sprite', function () {
 
     var spriteData = gulp.src('app/img/sprites/*.*')
@@ -43,10 +40,8 @@ gulp.task('sprite', function () {
         .pipe(gulp.dest('app/scss/components'));
 });
 
-
-//--------------------------------------------\\
-//SCSS TASKS
-//--------------------------------------------\\
+/* SCSS TASKS
+ ========================= */
 gulp.task('scss', function() {
 	return gulp.src('app/scss/**/*.+(scss|sass)')
 				.pipe(scss().on('error', scss.logError))
@@ -55,30 +50,24 @@ gulp.task('scss', function() {
 				.pipe(browserSync.reload({stream: true}));
 });
 
-
-//--------------------------------------------\\
-//JS TASKS
-//--------------------------------------------\\
+/* JS TASKS
+ ========================= */
 gulp.task('js', function() {
 	return gulp.src('app/js/**/*.js')
 				.pipe(gulp.dest('app/js'))
 				.pipe(browserSync.reload({stream: true}));
 });
 
-
-//--------------------------------------------\\
-//WIREDEP TASKS
-//--------------------------------------------\\
+/* WIREDEP TASKS
+ ========================= */
 gulp.task('wiredep', function () {
 	return gulp.src('app/*.html')
 				.pipe(wiredep())
 				.pipe(gulp.dest('app/'));
 });
 
-
-//--------------------------------------------\\
-//BROWSERSYNC
-//--------------------------------------------\\
+/* BROWSERSYNC
+ ========================= */
 gulp.task('browser-sync', function() {
 		browserSync({
 			server: {
@@ -88,10 +77,8 @@ gulp.task('browser-sync', function() {
 		});
 });
 
-
-//--------------------------------------------\\
-//WATCHER
-//--------------------------------------------\\
+/* WATCHER
+ ========================= */
 gulp.task('watch', ['browser-sync', 'scss', 'js'], function() {
 		gulp.watch('bower.json', ['wiredep']);
 		gulp.watch('app/*.html', browserSync.reload);
@@ -99,38 +86,30 @@ gulp.task('watch', ['browser-sync', 'scss', 'js'], function() {
 		gulp.watch('app/js/**/*.js', ['js']);
 });
 
-
-//--------------------------------------------\\
-//FONTS TASKS
-//--------------------------------------------\\
+/* FONTS TASKS
+ ========================= */
 gulp.task('fonts', function () {
 	return gulp.src('app/fonts/**/*')
 				.pipe(gulp.dest('dist/fonts'));
 });
 
-
-//--------------------------------------------\\
-//IMAGES TASKS
-//--------------------------------------------\\
+/* IMAGES TASKS
+ ========================= */
 gulp.task('img', function() {
 	return gulp.src(['!app/img/sprites', '!app/img/sprites/*', 'app/img/**/*'])
 				.pipe(cache(imagemin({interlaced: true, progressive: true, svgoPlugins: [{removeViewBox: false}], use: []})))
 				.pipe(gulp.dest('dist/img'));
 });
 
-
-//--------------------------------------------\\
-//DATA TASKS
-//--------------------------------------------\\
+/* DATA TASKS
+ ========================= */
 gulp.task('data', function () {
 	return gulp.src('app/data/**/*')
 				.pipe(gulp.dest('dist/data'));
 });
 
-
-//--------------------------------------------\\
-//EXTRASS TASKS
-//--------------------------------------------\\
+/* EXTRASS TASKS
+ ========================= */
 gulp.task('extrass', function () {
 	return gulp.src([
 					'app/*.*',
@@ -144,36 +123,28 @@ gulp.task('extrass', function () {
 				.pipe(gulp.dest('dist'));
 });
 
-
-//--------------------------------------------\\
-//DEL TASKS
-//--------------------------------------------\\
+/* DEL TASKS
+ ========================= */
 gulp.task('clean', function() {
 	return del.sync('dist');
 });
 
-
-//--------------------------------------------\\
-//CSS-NO-MIN TASKS
-//--------------------------------------------\\
+/* CSS-NO-MIN TASKS
+ ========================= */
 gulp.task('css-no-min', function () {
 	return gulp.src('app/css/**/*')
 				.pipe(gulp.dest('dist/css'));
 });
 
-
-//--------------------------------------------\\
-//JS-NO-MIN TASKS
-//--------------------------------------------\\
+/* JS-NO-MIN TASKS
+ ========================= */
 gulp.task('js-no-min', function () {
 	return gulp.src('app/js/**/*')
 				.pipe(gulp.dest('dist/js'));
 });
 
-
-//--------------------------------------------\\
-//BUILD TASKS
-//--------------------------------------------\\
+/* BUILD TASKS
+ ========================= */
 gulp.task('build', ['clean', 'scss', 'js'], function () {
 	gulp.start('fonts');
 	gulp.start('img');
@@ -188,16 +159,12 @@ gulp.task('build', ['clean', 'scss', 'js'], function () {
 				.pipe(gulp.dest('dist'));
 });
 
-
-//--------------------------------------------\\
-//DEFAULT TASKS
-//--------------------------------------------\\
+/* DEFAULT TASKS
+ ========================= */
 gulp.task('default', ['watch', 'browser-sync']);
 
-
-//--------------------------------------------\\
-//CLEAR CACHE TASKS
-//--------------------------------------------\\
+/* CLEAR CACHE TASKS
+ ========================= */
 gulp.task('clear', function (callback) {
 	return cache.clearAll();
 });

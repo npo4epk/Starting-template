@@ -128,120 +128,128 @@
 </ol>
 <p>
     <pre>
-        // Enable scroll zoom after click on map
-        map.addListener('click', function() {
-           map.setOptions({
-               scrollwheel: true
-           });
-        });
-    
-        // Enable scroll zoom after drag on map
-        map.addListener('drag', function() {
-           map.setOptions({
-               scrollwheel: true
-           });
-        });
-    
-        // Disable scroll zoom when mouse leave map
-        map.addListener('mouseout', function() {
-           map.setOptions({
-               scrollwheel: false
-           });
-        });
-       
-        /* Markers
-        =========================*/
-    
-        var neighborhoods = [
-            // Main
-            {lat: 56.9364861, lng: 24.2120549, title: 'Title 1', icon: 'map-pin.png'},
-    	{lat: 55.9364861, lng: 24.2120549, title: 'Title 2', icon: 'map-pin.png'},
-        ];
-    
-        var markers = [];
-    
-        function drop() {
-            for (var i = 0; i < neighborhoods.length; i++) {
-                addMarkerWithTimeout(neighborhoods[i], i * 150);
+           // Enable scroll zoom after click on map
+            map.addListener('click', function() {
+               map.setOptions({
+                   scrollwheel: true
+               });
+            });
+        
+            // Enable scroll zoom after drag on map
+            map.addListener('drag', function() {
+               map.setOptions({
+                   scrollwheel: true
+               });
+            });
+        
+            // Disable scroll zoom when mouse leave map
+            map.addListener('mouseout', function() {
+               map.setOptions({
+                   scrollwheel: false
+               });
+            });
+        
+        
+        
+        
+            /* Markers
+            =========================*/
+        
+            var neighborhoods = [
+                // Main
+                {lat: 56.9364861, lng: 24.2120549, title: 'Title 1', icon: 'map-pin.png'},
+        	{lat: 55.9364861, lng: 24.2120549, title: 'Title 2', icon: 'map-pin.png'},
+            ];
+        
+            var markers = [];
+        
+            function drop() {
+                for (var i = 0; i < neighborhoods.length; i++) {
+                    addMarkerWithTimeout(neighborhoods[i], i * 150);
+                }
             }
-        }
-    
-        function addMarkerWithTimeout(marker, timeout) {
-            window.setTimeout(function() {
-                markers.push(new google.maps.Marker({
-                    position: new google.maps.LatLng(marker["lat"], marker["lng"]),
-                    map: map,
-                    title: marker["title"],
-                    icon: {
-                        url: "img/" + marker["icon"]
-                    },
-                    animation: google.maps.Animation.DROP
-                }));
-            }, timeout);
-        }
-    
-        drop();
         
-        /* Info windows + Markers
-        =========================*/
-        infoWindow = new google.maps.InfoWindow();
-    
-        function displayMarkers() {
-    
-           // this variable sets the map bounds and zoom level according to markers position
-           var bounds = new google.maps.LatLngBounds();
-    
-           // For loop that runs through the info on markersData making it possible to createMarker function to create the markers
-           for (var i = 0; i < neighborhoods.length; i++){
-    
-              var latlng = new google.maps.LatLng(neighborhoods[i].lat, neighborhoods[i].lng);
-              var name = neighborhoods[i].title;
-              var icon = neighborhoods[i].icon;
-    
-              createMarker(latlng, name, icon, i * 150);
-    
-              // Marker’s Lat. and Lng. values are added to bounds variable
-              bounds.extend(latlng);
-           }
-    
-        }
-    
-    
-        function createMarker(latlng, title, icon, timeout) {
-    
-            window.setTimeout(function() {
-               var marker = new google.maps.Marker({
-                  map: map,
-                  position: latlng,
-                  clickable: true,
-                  icon: {
-                    url: "i/" + icon
-                  },
-                   animation: google.maps.Animation.DROP
-               });
-    
-                google.maps.event.addListener(marker, 'click', function() {
-                  var infoContent = '<div id="info_container">' +
-                  '<div class="info_title">' + title + '</div></div>';
-    
-                  infoWindow.setContent(infoContent);
-                  infoWindow.open(map, marker);
-    
-               });
-    
-            }, timeout);
-    
-        }
-    
-        displayMarkers();
+            function addMarkerWithTimeout(marker, timeout) {
+                window.setTimeout(function() {
+                    markers.push(new google.maps.Marker({
+                        position: new google.maps.LatLng(marker["lat"], marker["lng"]),
+                        map: map,
+                        title: marker["title"],
+                        icon: {
+                            url: "i/" + marker["icon"]
+                        },
+                        animation: google.maps.Animation.DROP
+                    }));
+                }, timeout);
+            }
         
-        /* Map center on resize
-        =========================*/
-        var getCen = map.getCenter();
-    
-        google.maps.event.addDomListener(window, 'resize', function() {
-            map.setCenter(getCen);
-        });
+            drop();
+        
+        
+        
+        
+            /* Info windows + Markers
+            =========================*/
+            infoWindow = new google.maps.InfoWindow();
+        
+            function displayMarkers() {
+        
+               // this variable sets the map bounds and zoom level according to markers position
+               var bounds = new google.maps.LatLngBounds();
+        
+               // For loop that runs through the info on markersData making it possible to createMarker function to create the markers
+               for (var i = 0; i < neighborhoods.length; i++){
+        
+                  var latlng = new google.maps.LatLng(neighborhoods[i].lat, neighborhoods[i].lng);
+                  var name = neighborhoods[i].title;
+                  var icon = neighborhoods[i].icon;
+        
+                  createMarker(latlng, name, icon, i * 150);
+        
+                  // Marker’s Lat. and Lng. values are added to bounds variable
+                  bounds.extend(latlng);
+               }
+        
+            }
+        
+        
+            function createMarker(latlng, title, icon, timeout) {
+        
+                window.setTimeout(function() {
+                   var marker = new google.maps.Marker({
+                      map: map,
+                      position: latlng,
+                      clickable: true,
+                      icon: {
+                        url: "i/" + icon
+                      },
+                       animation: google.maps.Animation.DROP
+                   });
+        
+                    google.maps.event.addListener(marker, 'click', function() {
+                      var infoContent = '<div id="info_container">' +
+                      '<div class="info_title">' + title + '</div></div>';
+        
+                      infoWindow.setContent(infoContent);
+                      infoWindow.open(map, marker);
+        
+                   });
+        
+                }, timeout);
+        
+            }
+        
+            displayMarkers();
+        
+        
+            /* Map center on resize
+            =========================*/
+            var getCen = map.getCenter();
+        
+            google.maps.event.addDomListener(window, 'resize', function() {
+                map.setCenter(getCen);
+            });
+
     </pre>
 </p>
 
