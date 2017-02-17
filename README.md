@@ -36,7 +36,7 @@
 
 ##Plugins for a job
 
-<p>Animation</p>
+<p>Animation:</p>
 <ol>
     <li><a href="http://mynameismatthieu.com/WOW/" target="_blank">http://mynameismatthieu.com/WOW/</a></li>
     <li><a href="https://daneden.github.io/animate.css/" target="_blank">https://daneden.github.io/animate.css/</a></li>
@@ -103,13 +103,13 @@
     <li><a href="https://datatables.net/" target="_blank">https://datatables.net/</a></li>
 </ol>
 
-<p>Zoom img:</p> 
+<p>Zoom picture:</p> 
 <ol>
     <li><a href="https://github.com/mark-rolich/Magnifier.js" target="_blank">https://github.com/mark-rolich/Magnifier.js</a></li>
     <li><a href="http://www.jacklmoore.com/zoom/" target="_blank">http://www.jacklmoore.com/zoom/</a></li>
 </ol> 
 
-<p>Additionally</p>
+<p>Additionally:</p>
 <ol>
     <li>Autodial text: <a href="https://github.com/mattboldt/typed.js/" target="_blank">https://github.com/mattboldt/typed.js/</a></li>
     <li>Running counter: <a href="https://github.com/bfintal/Counter-Up" target="_blank">https://github.com/bfintal/Counter-Up</a></li>
