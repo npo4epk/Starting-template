@@ -299,7 +299,7 @@
 				<p>LinkedIn:</p>
 			</td>
 			<td>
-				<a href="https://www.linkedin.com/in/никита-карпинский-544b42a2" target="_blank">linkedin.com</a>
+				<a href="https://www.linkedin.com/in/nikita-karpinskiy-544b42a2/" target="_blank">linkedin.com</a>
 			</td>
 		</tr>
 		<tr>
