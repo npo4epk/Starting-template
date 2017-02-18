@@ -116,6 +116,7 @@
     <li>Cancellation of numerous "hover": <a href="https://github.com/john-terenzio/jQuery-Hover-Delay" target="_blank">https://github.com/john-terenzio/jQuery-Hover-Delay</a></li>
     <li>Grid masonry: <a href="http://masonry.desandro.com/" target="_blank">http://masonry.desandro.com/</a></li>
     <li>Fixed sidebar: <a href="http://stickyjs.com/" target="_blank">http://stickyjs.com/</a></li>
+    <li>SVG animation: <a href="https://tympanus.net/Development/SVGDrawingAnimation/index.html" target="_blank">https://tympanus.net/Development/SVGDrawingAnimation/index.html</a></li>
     <li>Progress: <a href="http://anthonyterrien.com/knob/" target="_blank">http://anthonyterrien.com/knob/</a></li>
 </ol>
 
