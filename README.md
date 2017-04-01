@@ -48,6 +48,7 @@
 <ol>
     <li><a href="http://kenwheeler.github.io/slick/" target="_blank">http://kenwheeler.github.io/slick/</a></li>
     <li><a href="https://owlcarousel2.github.io/OwlCarousel2/" target="_blank">https://owlcarousel2.github.io/OwlCarousel2/</a></li>
+    <li><a href="http://bxslider.com/" target="_blank">http://bxslider.com/</a></li>
 </ol>
 
 <p>Gallery:</p>
