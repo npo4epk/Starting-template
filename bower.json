@@ -1,35 +1,17 @@
 {
-  "name": "Template",
-  "version": "1.2.0",
-  "homepage": "https://github.com/npo4epk/Starting-template",
-  "authors": [
-    "Nikita Karpinskiy <nekit-1989@mail.ru>"
-  ],
-  "description": "My Gulp Template",
+  "name": "weblanding",
+  "version": "1.0.0",
+  "authors": [""],
+  "description": "weblanding",
   "license": "MIT",
   "dependencies": {
-    "jquery": "~2.1.4",
-    "font-awesome": "~4.4.0",
     "html5shiv": "~3.7.3",
     "modernizer": "~2.8.2",
     "respond": "^1.4.2",
     "es5-shim": "~4.1.15",
-    "normalize-css": "normalize.css#~3.0.3",
-    "owl-carousel": "~1.3.2",
-    "fancyBox": "~2.1.5"
+    "normalize-css": "normalize.css#~3.0.3"
   },
   "overrides": {
-    "font-awesome": {
-      "main": [
-        "./css/font-awesome.css"
-      ]
-    },
-    "owl-carousel": {
-      "main": [
-        "./owl-carousel/owl.carousel.css",
-        "./owl-carousel/owl.carousel.js"
-      ]
-    },
     "es5-shim": {
       "main": [
         "./es5-shim.js",
@@ -47,15 +29,6 @@
         "./dest/respond.src.js",
         "./dest/respond.matchmedia.addListener.src.js"
       ]
-    },
-    "fancyBox": {
-      "main": [
-        "./source/jquery.fancybox.css",
-        "./source/jquery.fancybox.js"
-      ],
-      "dependencies": {
-        "jquery": ">=1.10"
-      }
     }
   }
 }

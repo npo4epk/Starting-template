@@ -13,33 +13,8 @@ var 	browserSync   = require('browser-sync'),
 		scss          = require('gulp-sass'),
 		uglify        = require('gulp-uglify'),
 		useref        = require('gulp-useref'),
-    	spritesmith   = require('gulp.spritesmith'),
 		wiredep       = require('wiredep').stream,
     	rigger 		  = require('gulp-rigger');
-
-/* SPRITESMITH TASKS
- ========================= */
-gulp.task('sprite', function () {
-
-    var spriteData = gulp.src('app/img/sprites/*.*')
-						 .pipe(spritesmith({
-							imgName: 'sprite.png',
-							cssName: '_sprite.scss',
-							cssFormat: 'scss',
-							padding: 5,
-							imgPath: '../img/sprite.png',
-							algorithm: 'top-down',
-							cssVarMap: function(sprite) {
-								sprite.name = 's-' + sprite.name
-							}
-						 }));
-
-    spriteData.img
-        .pipe(gulp.dest('app/img'));
-
-    spriteData.css
-        .pipe(gulp.dest('app/scss/components'));
-});
 
 /* HTML TASKS
  ========================= */
@@ -108,16 +83,9 @@ gulp.task('fonts', function () {
 /* IMAGES TASKS
  ========================= */
 gulp.task('img', function() {
-	return gulp.src(['!app/img/sprites', '!app/img/sprites/*', 'app/img/**/*'])
+	return gulp.src(['app/img/**/*'])
 			   .pipe(cache(imagemin({interlaced: true, progressive: true, svgoPlugins: [{removeViewBox: false}], use: []})))
 			   .pipe(gulp.dest('dist/img'));
-});
-
-/* DATA TASKS
- ========================= */
-gulp.task('data', function () {
-	return gulp.src('app/data/**/*')
-			   .pipe(gulp.dest('dist/data'));
 });
 
 /* EXTRASS TASKS
@@ -130,8 +98,7 @@ gulp.task('extrass', function () {
 					'!app/scss',
 					'!app/vendor',
 					'!app/*.html',
-        			'!app/templates',
-					'!app/img/sprites'
+        			'!app/templates'
 					])
 			   .pipe(gulp.dest('dist'));
 });
@@ -162,7 +129,6 @@ gulp.task('build', ['clean', 'html', 'scss', 'js'], function () {
 	gulp.start('fonts');
 	gulp.start('img');
 	gulp.start('extrass');
-	gulp.start('data');
 	gulp.start('css-no-min');
 	gulp.start('js-no-min');
 	return gulp.src('app/*.html')
